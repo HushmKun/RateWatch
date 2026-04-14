@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["api", "cache", "core", "db", "schemas", "sources"]
+
+[project]
+name = "ratewatch"
+version = "0.1.0"
+description = "Multi-source FX rate aggregation service"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "alembic>=1.16.0",
+    "apscheduler>=3.10.4",
+    "asyncpg>=0.30.0",
+    "fastapi>=0.115.0",
+    "httpx>=0.28.0",
+    "pydantic-settings>=2.9.0",
+    "redis>=5.1.0",
+    "sqlalchemy>=2.0.41",
+    "uvicorn>=0.34.0",
+    "aiosqlite>=0.20.0",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=8.3.0",
+    "pytest-asyncio>=0.26.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+pythonpath = ["."]
