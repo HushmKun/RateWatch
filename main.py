@@ -54,8 +54,8 @@ async def lifespan(app: FastAPI):
     sources = [
         EcbSource(http_client),
         FrankfurterSource(http_client),
-        OpenExchangeSource(http_client, settings),
-        CurrencyApiSource(http_client, settings),
+        # OpenExchangeSource(http_client, settings),
+        # CurrencyApiSource(http_client, settings),
     ]
     aggregator = Aggregator(sources=sources, settings=settings)
     scheduler = PollScheduler(
@@ -125,7 +125,7 @@ async def validation_error_handler(_: Request, exc: RequestValidationError):
 
 
 def main() -> None:
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=False)
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
 
 
 if __name__ == "__main__":

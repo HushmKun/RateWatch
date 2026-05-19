@@ -23,13 +23,14 @@ def upgrade() -> None:
         op.execute(
             """
             CREATE TABLE IF NOT EXISTS rate_snapshots (
-                id BIGSERIAL PRIMARY KEY,
+                id BIGSERIAL ,
                 pair VARCHAR(7) NOT NULL,
                 rate NUMERIC(18, 8) NOT NULL,
                 source_count SMALLINT NOT NULL,
                 confidence VARCHAR(15) NOT NULL,
                 sources_used JSONB NOT NULL DEFAULT '[]'::jsonb,
-                recorded_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+                recorded_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+                PRIMARY KEY (id, recorded_at)
             ) PARTITION BY RANGE (recorded_at)
             """
         )

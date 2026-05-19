@@ -5,9 +5,13 @@ build/
 dist/
 wheels/
 *.egg-info
+.env
 
 # Virtual environments
 .venv
 .github/
 LEARNING.md
 plan.md
+
+# Database 
+*.db

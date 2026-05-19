@@ -26,6 +26,8 @@ class TrendStats(BaseModel):
 
 
 class HistoryResponse(BaseModel):
+    model_config = ConfigDict(populate_by_name=True)
+    
     pair: str = Field(pattern=PAIR_REGEX)
     interval: Literal["raw", "hourly", "daily"]
     from_: datetime = Field(alias="from")

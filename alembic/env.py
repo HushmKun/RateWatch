@@ -7,10 +7,14 @@ from sqlalchemy import engine_from_config, pool
 
 from db.models import Base
 
+from core.config import settings
 
 config = context.config
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
+
+
+config.set_main_option("sqlalchemy.url", str(settings.DATABASE_URL))
 
 target_metadata = Base.metadata
 

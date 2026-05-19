@@ -22,11 +22,13 @@ MINOR_CURRENCIES = {
     "BRL",
     "ZAR",
     "TRY",
+    "EGP",
     "CNY",
     "INR",
     "IDR",
 }
 TRACKED_PAIRS = [
+    "USD/EGP",
     "USD/EUR",
     "USD/GBP",
     "USD/JPY",
@@ -58,8 +60,6 @@ TRACKED_PAIRS = [
     "EUR/CHF",
     "GBP/JPY",
     "EUR/AUD",
-    "USD/BTC",
-    "USD/ETH",
 ]
 PAIR_REGEX = r"^[A-Z]{3}/[A-Z]{3}$"
 
